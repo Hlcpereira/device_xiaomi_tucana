@@ -35,7 +35,6 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_tucana
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_RAMDISK_OFFSET := 0x01000000
 ifeq ($(TARGET_PREBUILT_KERNEL),)
   TARGET_KERNEL_CONFIG := vendor/lineage_tucana_defconfig
 endif
