@@ -46,24 +46,22 @@
     },
     {
       "Name": "GPUMaxFreq",
-      "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/max_freq",
+      "Path": "/sys/class/kgsl/kgsl-3d0/max_pwrlevel",
       "Values": [
-        "610000000",
-        "430000000",
-        "180000000"
+        "0",
+        "3",
+        "7"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
     },
     {
       "Name": "GPUMinFreq",
-      "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/min_freq",
+      "Path": "/sys/class/kgsl/kgsl-3d0/min_pwrlevel",
       "Values": [
-        "610000000",
-        "430000000",
-        "355000000",
-        "267000000",
-        "180000000"
+        "0",
+        "3",
+        "7"
       ],
       "ResetOnInit": true
     },
@@ -176,7 +174,8 @@
       "Values": [
         "14236",
         "9155",
-        "2288"
+        "7110",
+        "4577"
       ],
       "ResetOnInit": true
     },
@@ -218,6 +217,24 @@
       "ResetOnInit": true
     },
     {
+      "Name": "L3LittleClusterMinFreq",
+      "Path": "/sys/class/devfreq/soc:qcom,cpu0-cpu-l3-lat/min_freq",
+      "Values": [
+        "1459200000",
+        "300000000"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "L3BigClusterMinFreq",
+      "Path": "/sys/class/devfreq/soc:qcom,cpu6-cpu-l3-lat/min_freq",
+      "Values": [
+        "1459200000",
+        "300000000"
+      ],
+      "ResetOnInit": true
+    },
+    {
       "Name": "CameraHalCpuset",
       "Path": "/dev/cpuset/camera-daemon/cpus",
       "Values": [
@@ -232,15 +249,6 @@
       "Values": [
         "0",
         "3"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "L3BigClusterMinFreq",
-      "Path": "/sys/class/devfreq/soc:qcom,cpu6-cpu-l3-lat/min_freq",
-      "Values": [
-        "1459200000",
-        "300000000"
       ],
       "ResetOnInit": true
     },
@@ -281,11 +289,11 @@
       "ResetOnInit": true
     },
     {
-      "Name": "SchedFeatures",
-      "Path": "/sys/kernel/debug/sched_features",
+      "Name": "EnergyAware",
+      "Path": "/proc/sys/kernel/sched_energy_aware",
       "Values": [
-        "NO_ENERGY_AWARE",
-        "ENERGY_AWARE"
+        "0",
+        "1"
       ],
       "ResetOnInit": true
     },
@@ -326,78 +334,6 @@
         "HIGH_PERFORMANCE"
       ],
       "Type": "Property"
-    },
-    {
-      "Name": "CPU0",
-      "Path": "/sys/devices/system/cpu/cpu0/online",
-      "Values": [
-        "0",
-        "1"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "CPU1",
-      "Path": "/sys/devices/system/cpu/cpu1/online",
-      "Values": [
-        "0",
-        "1"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "CPU2",
-      "Path": "/sys/devices/system/cpu/cpu2/online",
-      "Values": [
-        "0",
-        "1"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "CPU3",
-      "Path": "/sys/devices/system/cpu/cpu3/online",
-      "Values": [
-        "0",
-        "1"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "CPU4",
-      "Path": "/sys/devices/system/cpu/cpu4/online",
-      "Values": [
-        "0",
-        "1"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "CPU5",
-      "Path": "/sys/devices/system/cpu/cpu5/online",
-      "Values": [
-        "0",
-        "1"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "CPU6",
-      "Path": "/sys/devices/system/cpu/cpu6/online",
-      "Values": [
-        "0",
-        "1"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "CPU7",
-      "Path": "/sys/devices/system/cpu/cpu7/online",
-      "Values": [
-        "0",
-        "1"
-      ],
-      "ResetOnInit": true
     }
   ],
   "Actions": [
@@ -423,7 +359,7 @@
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "GPUMaxFreq",
       "Duration": 0,
-      "Value": "427000000"
+      "Value": "0"
     },
     {
       "PowerHint": "INTERACTION",
@@ -493,9 +429,9 @@
     },
     {
       "PowerHint": "LAUNCH",
-      "Node": "SchedFeatures",
+      "Node": "EnergyAware",
       "Duration": 2000,
-      "Value": "NO_ENERGY_AWARE"
+      "Value": "0"
     },
     {
       "PowerHint": "LAUNCH",
@@ -615,49 +551,13 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUMinFreq",
       "Duration": 0,
-      "Value": "430000000"
+      "Value": "3"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUMaxFreq",
       "Duration": 0,
-      "Value": "610000000"
-    },
-    {
-      "PowerHint": "NOT_INTERACTIVE",
-      "Node": "CPULittleClusterMinFreq",
-      "Duration": 0,
-      "Value": "300000"
-    },
-    {
-      "PowerHint": "NOT_INTERACTIVE",
-      "Node": "CPULittleClusterMaxFreq",
-      "Duration": 0,
-      "Value": "300000"
-    },
-    {
-      "PowerHint": "NOT_INTERACTIVE",
-      "Node": "CPUBigClusterMinFreq",
-      "Duration": 0,
-      "Value": "300000"
-    },
-    {
-      "PowerHint": "NOT_INTERACTIVE",
-      "Node": "CPUBigClusterMaxFreq",
-      "Duration": 0,
-      "Value": "300000"
-    },
-    {
-      "PowerHint": "NOT_INTERACTIVE",
-      "Node": "GPUMinFreq",
-      "Duration": 0,
-      "Value": "180000000"
-    },
-    {
-      "PowerHint": "NOT_INTERACTIVE",
-      "Node": "GPUMaxFreq",
-      "Duration": 0,
-      "Value": "180000000"
+      "Value": "0"
     }
   ]
 }
