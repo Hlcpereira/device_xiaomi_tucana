@@ -9,6 +9,3 @@ persist.camera.sat.fallback.dist=40
 persist.camera.sat.fallback.dist.d=10	
 persist.camera.sat.fallback.luxindex=330	
 persist.camera.sat.fallback.lux.d=50
-
-# NFC
-ro.nfc.port=I2C
