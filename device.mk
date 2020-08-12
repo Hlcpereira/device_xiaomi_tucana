@@ -31,10 +31,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
 
-# Consumer IR
-PRODUCT_PACKAGES += \
-    android.hardware.ir@1.0-service.xiaomi
-
 # Device init scripts
 PRODUCT_PACKAGES += \
     init.target.rc
@@ -45,6 +41,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     vendor/lineage/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
+
+# IR
+PRODUCT_PACKAGES += \
+    android.hardware.ir@1.0-impl \
+    android.hardware.ir@1.0-service
 
 # NFC
 PRODUCT_SOONG_NAMESPACES += \
