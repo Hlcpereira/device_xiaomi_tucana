@@ -1,5 +1,6 @@
 # Audio
 persist.vendor.audio.hifi=false
+ro.vendor.audio.sdk.fluencetype=fluence
 
 # Display post-processing
 ro.vendor.display.ad=1
