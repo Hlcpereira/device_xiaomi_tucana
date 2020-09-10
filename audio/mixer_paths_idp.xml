@@ -598,15 +598,12 @@
 
     <!-- for mius start -->
     <path name="mi_ultrasound-proximity">
-        <ctl name="Mi_Ultrasound Enable" value="On" />
-        <ctl name="Mi_Ultrasound Mode" value="618" />
-        <ctl name="Mi_Ultrasound Debug Mode" value="1" />
-        <ctl name="Mi_Ultrasound Log Level" value="7" />
-        <ctl name="Mi_Ultrasound Custom Setting 1" value="1" />
+        <ctl name="MI_Ultrasound Enable" value="On" />
+        <ctl name="MI_Ultrasound Mode" value="618" />
     </path>
 
     <path name="mi_ultrasound-output">
-        <ctl name="Mi_Ultrasound Enable" value="On" />
+        <ctl name="Ultrasound Enable" value="On" />
         <ctl name="RX_CDC_DMA_RX_1 SampleRate" value="KHZ_96" />
         <ctl name="RX_CDC_DMA_RX_1 Channels" value="One" />
         <ctl name="RX_MACRO RX2 MUX" value="AIF2_PB" />
